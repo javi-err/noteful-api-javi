@@ -2,7 +2,7 @@ const NotesService = {
   getAllNotes(knex) {
     return knex.select('*').from('notes')
   },
-insertNotes(knex, newNotes) {
+insertNote(knex, newNotes) {
   return knex
   .insert(newNotes)
   .into('notes')
@@ -11,13 +11,13 @@ insertNotes(knex, newNotes) {
     return rows[0]
   })
 },
-getbyID(knex, id) {
+getById(knex, id) {
   return knex.from('notes')
   .select('*')
   .where('id', id)
   .first()
 },
-deleteNotes(knex, id) {
+deleteNote(knex, id) {
   return knex('notes')
   .where({id})
   .delete()
